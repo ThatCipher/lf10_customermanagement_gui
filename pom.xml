@@ -61,7 +61,7 @@
                         <id>default-cli</id>
                         <configuration>
                             <mainClass>
-                                de.tectronic.lf10_customermanagement_gui/de.tectronic.lf10_customermanagement_gui.HelloApplication
+                                de.tectronic.lf10_customermanagement_gui/de.tectronic.lf10_customermanagement_gui.CustomerManagementGUI
                             </mainClass>
                             <launcher>app</launcher>
                             <jlinkZipName>app</jlinkZipName>

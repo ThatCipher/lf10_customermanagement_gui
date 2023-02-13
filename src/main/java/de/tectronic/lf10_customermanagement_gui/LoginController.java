@@ -3,7 +3,7 @@ package de.tectronic.lf10_customermanagement_gui;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 
-public class HelloController {
+public class LoginController {
     @FXML
     private Label welcomeText;
 
