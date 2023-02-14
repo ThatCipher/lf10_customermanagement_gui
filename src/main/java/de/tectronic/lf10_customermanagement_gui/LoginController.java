@@ -1,10 +1,17 @@
 package de.tectronic.lf10_customermanagement_gui;
 
 import de.oszimt.lf10aContractMgmt.model.Employee;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
+
+import java.io.IOException;
 
 public class LoginController {
 
@@ -18,7 +25,7 @@ public class LoginController {
     }
 
     @FXML
-    void tryLogin(){
+    void tryLogin(ActionEvent event) {
         String username = txt_username.getText();
         String password = pwd_password.getText();
         if(username.isEmpty() || password.isEmpty()){
@@ -27,7 +34,8 @@ public class LoginController {
         }
         if(username.equals("demo")){
             if(password.equals("user")){
-                System.out.println("SUCESSFULL");
+                openManagementWindow();
+                Util.closeWindow(event);
                 return;
             }
         }
@@ -48,5 +56,17 @@ public class LoginController {
         emptyAlert.setHeaderText(null);
         emptyAlert.setContentText("Angegeber Nutzername oder Password nicht gefunden.");
         emptyAlert.showAndWait();
+    }
+
+    void openManagementWindow() {
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("employeeMgmt-view.fxml"));
+            Stage stage = new Stage();
+            stage.setTitle("Auftragsverwaltung - eingeloggt als Demo");
+            stage.setScene(new Scene(root));
+            stage.show();
+        } catch (IOException exception) {
+            exception.printStackTrace();
+        }
     }
 }
