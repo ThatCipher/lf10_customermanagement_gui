@@ -1,3 +1,5 @@
+package de.oszimt.lf10aContractMgmt;
+
 import de.oszimt.lf10aContractMgmt.impl.HaseGmbHManagement;
 import de.oszimt.lf10aContractMgmt.model.Contract;
 import de.oszimt.lf10aContractMgmt.model.Customer;
