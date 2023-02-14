@@ -1,5 +1,6 @@
 package de.tectronic.lf10_customermanagement_gui;
 
+import de.oszimt.lf10aContractMgmt.model.Employee;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.PasswordField;
