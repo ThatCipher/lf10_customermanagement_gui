@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<BorderPane prefHeight="700.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="de.tectronic.lf10_customermanagement_gui.EmployeeMgmtController">
+<BorderPane prefHeight="700.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="de.tectronic.lf10_customermanagement_gui.EmployeeMgmtController">
    <center>
       <VBox spacing="5.0" BorderPane.alignment="CENTER">
          <BorderPane.margin>
@@ -57,9 +57,9 @@
                   <VBox minWidth="150.0" spacing="5.0">
                      <children>
                         <VBox VBox.vgrow="ALWAYS" />
-                        <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="50.0" mnemonicParsing="false" text="Neuer Eintrag" />
-                        <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="50.0" mnemonicParsing="false" text="Bearbeiten" />
-                        <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="50.0" mnemonicParsing="false" text="Eintrag Anzeigen" />
+                        <Button fx:id="btn_newEntry" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="50.0" mnemonicParsing="false" onAction="#openNewEmployeeWindow" text="Neuer Eintrag" />
+                        <Button fx:id="btn_editEntry" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="50.0" mnemonicParsing="false" onAction="#openEditEmployeeWindow" text="Bearbeiten" />
+                        <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="50.0" mnemonicParsing="false" text="Eintrag löschen" />
                      </children>
                   </VBox>
                </children>
