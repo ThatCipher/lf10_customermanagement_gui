@@ -60,7 +60,7 @@ public class LoginController {
 
     void openManagementWindow() {
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("employeeMgmt-view.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("mgmtView.fxml"));
             Stage stage = new Stage();
             stage.setTitle("Auftragsverwaltung - eingeloggt als Demo");
             stage.setScene(new Scene(root));

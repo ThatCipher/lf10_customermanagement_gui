@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="de.tectronic.lf10_customermanagement_gui.EmployeeEditEntryController">
+   <center>
+      <VBox BorderPane.alignment="CENTER">
+         <children>
+            <HBox>
+               <children>
+                  <Label text="Mitarbeiter bearbeiten">
+                     <font>
+                        <Font name="System Bold" size="40.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            <VBox maxWidth="1.7976931348623157E308">
+               <children>
+                  <Label text="Name">
+                     <font>
+                        <Font name="System Bold" size="20.0" />
+                     </font>
+                  </Label>
+                  <HBox maxWidth="1.7976931348623157E308" spacing="5.0">
+                     <children>
+                        <TextField fx:id="txt_firstName" maxWidth="1.7976931348623157E308" promptText="Vorname" HBox.hgrow="ALWAYS" />
+                        <TextField fx:id="txt_lastName" maxWidth="1.7976931348623157E308" promptText="Nachname" HBox.hgrow="ALWAYS" />
+                     </children>
+                  </HBox>
+               </children>
+               <VBox.margin>
+                  <Insets bottom="5.0" />
+               </VBox.margin>
+            </VBox>
+            <VBox maxWidth="1.7976931348623157E308" spacing="5.0">
+               <children>
+                  <Label text="Adresse">
+                     <font>
+                        <Font name="System Bold" size="20.0" />
+                     </font>
+                  </Label>
+                  <HBox spacing="5.0">
+                     <children>
+                        <TextField fx:id="txt_streetName" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" promptText="Straßenname" HBox.hgrow="ALWAYS" />
+                        <TextField fx:id="txt_streetNumber" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefWidth="50.0" promptText="Nr" HBox.hgrow="NEVER" />
+                     </children>
+                  </HBox>
+                  <HBox spacing="5.0">
+                     <children>
+                        <TextField fx:id="txt_city" promptText="Stadt" HBox.hgrow="ALWAYS" />
+                        <TextField fx:id="txt_country" promptText="Bundesland" HBox.hgrow="ALWAYS" />
+                        <TextField fx:id="txt_plz" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefWidth="100.0" promptText="Postleitzahl" HBox.hgrow="ALWAYS" />
+                     </children>
+                  </HBox>
+               </children>
+               <VBox.margin>
+                  <Insets bottom="5.0" />
+               </VBox.margin>
+            </VBox>
+            <VBox>
+               <children>
+                  <Label text="Kontakt">
+                     <font>
+                        <Font name="System Bold" size="20.0" />
+                     </font>
+                  </Label>
+                  <HBox maxWidth="1.7976931348623157E308" spacing="5.0">
+                     <children>
+                        <TextField fx:id="txt_email" maxWidth="1.7976931348623157E308" promptText="E-Mail-Adresse" HBox.hgrow="ALWAYS" />
+                        <TextField fx:id="txt_telephoneNumber" maxWidth="1.7976931348623157E308" promptText="Telefonnummer" HBox.hgrow="ALWAYS" />
+                     </children>
+                  </HBox>
+               </children>
+               <VBox.margin>
+                  <Insets bottom="5.0" />
+               </VBox.margin>
+            </VBox>
+            <HBox alignment="BASELINE_RIGHT">
+               <children>
+                  <Button fx:id="btn_editEmployee" mnemonicParsing="false" onAction="#saveChanges" text="Speichern" />
+               </children>
+            </HBox>
+         </children>
+         <BorderPane.margin>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+         </BorderPane.margin>
+      </VBox>
+   </center>
+</BorderPane>
