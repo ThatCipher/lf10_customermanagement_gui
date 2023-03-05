@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<BorderPane prefHeight="700.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="de.tectronic.lf10_customermanagement_gui.MgmtViewController">
+   <center>
+      <VBox spacing="5.0" BorderPane.alignment="CENTER">
+         <BorderPane.margin>
+            <Insets />
+         </BorderPane.margin>
+         <padding>
+            <Insets bottom="5.0" left="5.0" right="5.0" />
+         </padding>
+         <children>
+            <HBox spacing="5.0">
+               <children>
+                  <Label fx:id="lbl_title" text="Mitarbeiterverwaltung">
+                     <font>
+                        <Font size="40.0" />
+                     </font>
+                  </Label>
+                  <HBox HBox.hgrow="ALWAYS" />
+                  <VBox>
+                     <children>
+                        <VBox VBox.vgrow="ALWAYS" />
+                        <HBox>
+                           <children>
+                              <Label text="Eingeloggt als : ">
+                                 <font>
+                                    <Font size="24.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="lbl_username" text="\$USER">
+                                 <font>
+                                    <Font size="24.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+            <HBox prefHeight="100.0" spacing="5.0">
+               <children>
+                  <Button fx:id="btn_employee" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#activateEmployee" text="Mitarbeiterveraltung" HBox.hgrow="ALWAYS" />
+                  <Button fx:id="btn_customer" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#activateCustomer" text="Kundenverwaltung" HBox.hgrow="ALWAYS" />
+                  <Button fx:id="btn_contract" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#activateContract" text="Auftragsverwaltung" HBox.hgrow="ALWAYS" />
+               </children>
+            </HBox>
+            <HBox fx:id="hbx_list" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" VBox.vgrow="ALWAYS" />
+         </children>
+      </VBox>
+   </center>
+</BorderPane>
