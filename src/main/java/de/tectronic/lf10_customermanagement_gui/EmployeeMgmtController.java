@@ -64,7 +64,7 @@ public class EmployeeMgmtController {
         try {
             Parent root = FXMLLoader.load(getClass().getResource("edit-employee-view.fxml"));
             Stage stage = new Stage();
-            stage.setTitle("Auftragsverwaltung - Mitarbeiter hinzufügen");
+            stage.setTitle("Auftragsverwaltung - Mitarbeiter bearbeiten");
             stage.setScene(new Scene(root));
             stage.show();
         } catch (IOException exception) {
