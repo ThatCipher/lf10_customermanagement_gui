@@ -66,6 +66,10 @@ public class CustomerEditorController {
         l_customerID.setText("" + currentCustomer.getCustomerID());
     }
 
+    void deleteEntry() {
+        mgmt.deleteCustomer(currentCustomer.getCustomerID());
+    }
+
     void exitForm() {
         // Ansicht ausmachen, wie auch immer das geht xd
     }
