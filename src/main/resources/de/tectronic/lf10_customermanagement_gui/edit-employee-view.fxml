@@ -5,13 +5,13 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="de.tectronic.lf10_customermanagement_gui.EmployeeNewEntryController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="de.tectronic.lf10_customermanagement_gui.EmployeeEditEntryController">
    <center>
       <VBox BorderPane.alignment="CENTER">
          <children>
             <HBox>
                <children>
-                  <Label text="Mitarbeiter hinzufügen">
+                  <Label text="Mitarbeiter bearbeiten">
                      <font>
                         <Font name="System Bold" size="40.0" />
                      </font>
@@ -81,7 +81,7 @@
             </VBox>
             <HBox alignment="BASELINE_RIGHT">
                <children>
-                  <Button fx:id="btn_addEmployee" mnemonicParsing="false" onAction="#addEmployee" text="Hinzufügen" />
+                  <Button fx:id="btn_editEmployee" mnemonicParsing="false" onAction="#saveChanges" text="Speichern" />
                </children>
             </HBox>
          </children>
