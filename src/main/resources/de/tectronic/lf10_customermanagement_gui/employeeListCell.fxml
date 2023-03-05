@@ -5,21 +5,25 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<VBox xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="de.tectronic.lf10_customermanagement_gui.EmployeeListCell">
+<AnchorPane fx:id="anchorPane" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Label text="\$EMPLOYEE_NAME">
-         <font>
-            <Font size="20.0" />
-         </font>
-      </Label>
-      <HBox>
+      <VBox>
          <children>
-            <Label maxWidth="1.7976931348623157E308" text="\$EMPLOYEE_EMAIL" HBox.hgrow="ALWAYS" />
-            <Label maxWidth="1.7976931348623157E308" text="\$EMPLOYEE_PHONE" HBox.hgrow="ALWAYS" />
+            <Label fx:id="lbl_name" text="\$EMPLOYEE_NAME">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <HBox spacing="10.0">
+               <children>
+                  <Label fx:id="lbl_mail" maxWidth="300.0" minWidth="300.0" prefWidth="300.0" text="\$EMPLOYEE_EMAIL" HBox.hgrow="ALWAYS" />
+                  <Label fx:id="lbl_phone" maxWidth="1.7976931348623157E308" text="\$EMPLOYEE_PHONE" HBox.hgrow="ALWAYS" />
+               </children>
+            </HBox>
          </children>
-      </HBox>
+         <padding>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+         </padding>
+      </VBox>
    </children>
-   <padding>
-      <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-   </padding>
-</VBox>
+</AnchorPane>
