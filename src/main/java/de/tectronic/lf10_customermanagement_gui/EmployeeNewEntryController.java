@@ -8,6 +8,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 
 public class EmployeeNewEntryController {
+    EmployeeListComponentController employeeListComponentController = new EmployeeListComponentController();
     public TextField txt_firstName;
     public TextField txt_lastName;
     public TextField txt_streetName;
@@ -18,16 +19,14 @@ public class EmployeeNewEntryController {
     public TextField txt_email;
     public TextField txt_telephoneNumber;
     public Button btn_addEmployee;
-    HaseGmbHManagement haseGmbHManagement = new HaseGmbHManagement();
+
     @FXML
     void addEmployee() {
-        System.out.println(haseGmbHManagement.getAllEmployees().size());
-
         Address address = new Address(txt_streetName.getText(), txt_streetNumber.getText(), txt_plz.getText(), txt_city.getText(), txt_country.getText());
-        haseGmbHManagement.addNewEmployee(new Employee(txt_firstName.getText(), txt_lastName.getText(), address, txt_email.getText(), txt_telephoneNumber.getText()));
+        CustomerManagementGUI.client.addNewEmployee(new Employee(txt_firstName.getText(), txt_lastName.getText(), address, txt_email.getText(), txt_telephoneNumber.getText()));
 
-        System.out.println(haseGmbHManagement.getAllEmployees().size());
+        employeeListComponentController.updateEmployeeList();
 
-        System.out.println(haseGmbHManagement.getAllEmployees());
+        System.out.println(CustomerManagementGUI.client.getAllEmployees());
     }
 }
