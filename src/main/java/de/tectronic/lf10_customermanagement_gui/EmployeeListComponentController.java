@@ -60,26 +60,31 @@ public class EmployeeListComponentController extends HBox {
 
     @FXML
     void openNewWindow() {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("new-employee-view.fxml"));
+
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("new-employee-view.fxml"));
+            fxmlLoader.load();
+
             Stage stage = new Stage();
             stage.setTitle("Auftragsverwaltung - Kunde hinzufügen");
-            stage.setScene(new Scene(root));
+            stage.setScene(new Scene(fxmlLoader.getRoot()));
             stage.show();
         } catch (IOException exception) {
             exception.printStackTrace();
         }
     }
+
     @FXML
     void openEditWindow() {
-        try {
-            Parent root = FXMLLoader.load(getClass().getResource("edit-employee-view.fxml"));
-            Stage stage = new Stage();
-            stage.setTitle("Auftragsverwaltung - Kunde bearbeiten");
-            stage.setScene(new Scene(root));
-            stage.show();
-        } catch (IOException exception) {
-            exception.printStackTrace();
+        if(lsv_employeeList.getSelectionModel().getSelectedItem() == null){
+            return;
         }
+
+        EmployeeEditEntryController employeeEditEntryController = new EmployeeEditEntryController(lsv_employeeList.getSelectionModel().getSelectedItem());
+
+        Stage stage = new Stage();
+        stage.setTitle("Auftragsverwaltung - Kunde bearbeiten");
+        stage.setScene(new Scene(employeeEditEntryController.fxmlLoader.getRoot()));
+        stage.show();
     }
 }

@@ -14,51 +14,75 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public class EmployeeEditEntryController {
-    // EmployeeListComponentController employeeListComponentController = new EmployeeListComponentController();
-    HaseGmbHManagement haseGmbHManagement = new HaseGmbHManagement();
-    Employee currentEmployee;
 
+    Employee employee;
+    FXMLLoader fxmlLoader;
+
+    @FXML
     public TextField txt_firstName;
+    @FXML
     public TextField txt_lastName;
+    @FXML
     public TextField txt_streetName;
+    @FXML
     public TextField txt_streetNumber;
+    @FXML
     public TextField txt_city;
+    @FXML
     public TextField txt_country;
+    @FXML
     public TextField txt_plz;
+    @FXML
     public TextField txt_email;
+    @FXML
     public TextField txt_telephoneNumber;
-    public Button btn_editEmployee;
 
-    public void showEmployee(Employee e) {
-        currentEmployee = e;
+    public EmployeeEditEntryController(Employee employee) {
+        this.employee = employee;
+        System.out.println(this.employee.getFirstname());
+        initView();
+        initData();
+    }
 
-        txt_firstName.setText(currentEmployee.getFirstname());
-        txt_lastName.setText(currentEmployee.getLastname());
-        txt_email.setText(currentEmployee.getEmail());
-        txt_telephoneNumber.setText(currentEmployee.getTelephone());
+    public void initView() {
+        fxmlLoader = new FXMLLoader(getClass().getResource("edit-employee-view.fxml"));
+        fxmlLoader.setController(this);
 
-        Address employeeAddress = currentEmployee.getAddress();
-        txt_streetName.setText(employeeAddress.getStreet());
-        txt_streetNumber.setText(employeeAddress.getHouse());
-        txt_city.setText(employeeAddress.getCity());
-        txt_plz.setText(employeeAddress.getPostalCode());
-        txt_country.setText(employeeAddress.getCountry());
+        try {
+            fxmlLoader.load();
+        } catch (IOException exception) {
+            throw new RuntimeException(exception);
+        }
+    }
+
+    public void initData(){
+        txt_firstName.setText(employee.getFirstname());
+        txt_lastName.setText(employee.getLastname());
+        txt_email.setText(employee.getEmail());
+        txt_telephoneNumber.setText(employee.getTelephone());
+
+        Address address = employee.getAddress();
+        txt_streetName.setText(address.getStreet());
+        txt_streetNumber.setText(address.getHouse());
+        txt_city.setText(address.getCity());
+        txt_plz.setText(address.getPostalCode());
+        txt_country.setText(address.getCountry());
     }
 
     @FXML
     void saveChanges() {
-        currentEmployee.setFirstname(txt_firstName.getText());
-        currentEmployee.setLastname(txt_lastName.getText());
-        currentEmployee.setEmail(txt_email.getText());
-        currentEmployee.setTelephone(txt_telephoneNumber.getText());
+        employee.setFirstname(txt_firstName.getText());
+        employee.setLastname(txt_lastName.getText());
+        employee.setEmail(txt_email.getText());
+        employee.setTelephone(txt_telephoneNumber.getText());
 
-        Address currentAddress = currentEmployee.getAddress();
-        currentAddress.setStreet(txt_streetName.getText());
-        currentAddress.setHouse(txt_streetNumber.getText());
-        currentAddress.setPostalCode(txt_plz.getText());
-        currentAddress.setCity(txt_city.getText());
-        currentAddress.setCountry(txt_country.getText());
+        Address address = employee.getAddress();
+        address.setStreet(txt_streetName.getText());
+        address.setHouse(txt_streetNumber.getText());
+        address.setPostalCode(txt_plz.getText());
+        address.setCity(txt_city.getText());
+        address.setCountry(txt_country.getText());
 
-        haseGmbHManagement.updateEmployee((currentEmployee));
+        CustomerManagementGUI.client.updateEmployee(employee);
     }
 }
