@@ -81,4 +81,13 @@ public class EmployeeListComponentController extends HBox {
         stage.setScene(new Scene(employeeEditEntryController.fxmlLoader.getRoot()));
         stage.show();
     }
+
+    @FXML
+    void deleteItem(){
+        if(lsv_employeeList.getSelectionModel().getSelectedItem() == null){
+            return;
+        }
+        int employeeID = lsv_employeeList.getSelectionModel().getSelectedItem().getEmployeeID();
+        CustomerManagementGUI.client.deleteEmployee(employeeID);
+    }
 }
