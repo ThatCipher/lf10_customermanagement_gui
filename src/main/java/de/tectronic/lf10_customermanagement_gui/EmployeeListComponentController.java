@@ -52,7 +52,7 @@ public class EmployeeListComponentController extends HBox {
         }
 
         employeeObservableList.clear();
-        employeeObservableList.addAll(employees);
+        employeeObservableList.addAll(CustomerManagementGUI.client.getAllEmployees());
 
         lsv_employeeList.setItems(employeeObservableList);
         lsv_employeeList.setCellFactory(employeeListView -> new EmployeeListCellController());
@@ -60,18 +60,12 @@ public class EmployeeListComponentController extends HBox {
 
     @FXML
     void openNewWindow() {
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("new-employee-view.fxml"));
+        EmployeeNewEntryController employeeNewEntryController = new EmployeeNewEntryController();
 
-        try {
-            fxmlLoader.load();
-
-            Stage stage = new Stage();
-            stage.setTitle("Auftragsverwaltung - Kunde hinzufügen");
-            stage.setScene(new Scene(fxmlLoader.getRoot()));
-            stage.show();
-        } catch (IOException exception) {
-            exception.printStackTrace();
-        }
+        Stage stage = new Stage();
+        stage.setTitle("Kunde erstellen");
+        stage.setScene(new Scene(employeeNewEntryController.fxmlLoader.getRoot()));
+        stage.show();
     }
 
     @FXML
@@ -83,7 +77,7 @@ public class EmployeeListComponentController extends HBox {
         EmployeeEditEntryController employeeEditEntryController = new EmployeeEditEntryController(lsv_employeeList.getSelectionModel().getSelectedItem());
 
         Stage stage = new Stage();
-        stage.setTitle("Auftragsverwaltung - Kunde bearbeiten");
+        stage.setTitle("Kunde bearbeiten");
         stage.setScene(new Scene(employeeEditEntryController.fxmlLoader.getRoot()));
         stage.show();
     }

@@ -4,11 +4,18 @@ import de.oszimt.lf10aContractMgmt.impl.HaseGmbHManagement;
 import de.oszimt.lf10aContractMgmt.model.Address;
 import de.oszimt.lf10aContractMgmt.model.Employee;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.BorderPane;
+import javafx.stage.Stage;
+
+import java.io.IOException;
 
 public class EmployeeNewEntryController {
-    EmployeeListComponentController employeeListComponentController = new EmployeeListComponentController();
+    FXMLLoader fxmlLoader;
+
+    public BorderPane bp_root;
     public TextField txt_firstName;
     public TextField txt_lastName;
     public TextField txt_streetName;
@@ -20,13 +27,39 @@ public class EmployeeNewEntryController {
     public TextField txt_telephoneNumber;
     public Button btn_addEmployee;
 
+    public EmployeeNewEntryController() {
+        fxmlLoader = new FXMLLoader(getClass().getResource("new-employee-view.fxml"));
+        fxmlLoader.setController(this);
+
+        try {
+            fxmlLoader.load();
+        } catch (IOException exception) {
+            throw new RuntimeException(exception);
+        }
+    }
+
+
     @FXML
     void addEmployee() {
-        Address address = new Address(txt_streetName.getText(), txt_streetNumber.getText(), txt_plz.getText(), txt_city.getText(), txt_country.getText());
-        CustomerManagementGUI.client.addNewEmployee(new Employee(txt_firstName.getText(), txt_lastName.getText(), address, txt_email.getText(), txt_telephoneNumber.getText()));
+        Address address = new Address(
+                txt_streetName.getText(),
+                txt_streetNumber.getText(),
+                txt_plz.getText(),
+                txt_city.getText(),
+                txt_country.getText()
+        );
 
-        employeeListComponentController.updateEmployeeList();
+        Employee employee = new Employee(
+                txt_firstName.getText(),
+                txt_lastName.getText(),
+                address,
+                txt_email.getText(),
+                txt_telephoneNumber.getText()
+        );
 
-        System.out.println(CustomerManagementGUI.client.getAllEmployees());
+        CustomerManagementGUI.client.addNewEmployee(employee);
+
+        Stage stage = (Stage) bp_root.getScene().getWindow();
+        stage.close();
     }
 }
