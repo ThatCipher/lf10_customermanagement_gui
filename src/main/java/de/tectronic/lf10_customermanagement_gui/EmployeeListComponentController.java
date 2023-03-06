@@ -5,10 +5,13 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.ListView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -34,8 +37,13 @@ public class EmployeeListComponentController extends HBox {
 
     @FXML
     public void initialize(){
-        employees = CustomerManagementGUI.client.getAllEmployees();
+        updateEmployees();
         updateEmployeeList();
+    }
+
+    public void updateEmployees() {
+        employees.clear();
+        employees = CustomerManagementGUI.client.getAllEmployees();
     }
 
     void updateEmployeeList(){
@@ -50,4 +58,28 @@ public class EmployeeListComponentController extends HBox {
         lsv_employeeList.setCellFactory(employeeListView -> new EmployeeListCellController());
     }
 
+    @FXML
+    void openNewWindow() {
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("new-employee-view.fxml"));
+            Stage stage = new Stage();
+            stage.setTitle("Auftragsverwaltung - Kunde hinzufügen");
+            stage.setScene(new Scene(root));
+            stage.show();
+        } catch (IOException exception) {
+            exception.printStackTrace();
+        }
+    }
+    @FXML
+    void openEditWindow() {
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("edit-employee-view.fxml"));
+            Stage stage = new Stage();
+            stage.setTitle("Auftragsverwaltung - Kunde bearbeiten");
+            stage.setScene(new Scene(root));
+            stage.show();
+        } catch (IOException exception) {
+            exception.printStackTrace();
+        }
+    }
 }

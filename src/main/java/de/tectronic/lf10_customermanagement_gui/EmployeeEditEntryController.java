@@ -4,10 +4,17 @@ import de.oszimt.lf10aContractMgmt.impl.HaseGmbHManagement;
 import de.oszimt.lf10aContractMgmt.model.Address;
 import de.oszimt.lf10aContractMgmt.model.Employee;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
+
+import java.io.IOException;
 
 public class EmployeeEditEntryController {
+    // EmployeeListComponentController employeeListComponentController = new EmployeeListComponentController();
     HaseGmbHManagement haseGmbHManagement = new HaseGmbHManagement();
     Employee currentEmployee;
 
