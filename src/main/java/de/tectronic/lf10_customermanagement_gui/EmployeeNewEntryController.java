@@ -3,6 +3,7 @@ package de.tectronic.lf10_customermanagement_gui;
 import de.oszimt.lf10aContractMgmt.impl.HaseGmbHManagement;
 import de.oszimt.lf10aContractMgmt.model.Address;
 import de.oszimt.lf10aContractMgmt.model.Employee;
+import de.tectronic.lf10_customermanagement_gui.interfaces.IEmployeeCallback;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
@@ -27,6 +28,8 @@ public class EmployeeNewEntryController {
     public TextField txt_telephoneNumber;
     public Button btn_addEmployee;
 
+    IEmployeeCallback callback;
+
     public EmployeeNewEntryController() {
         fxmlLoader = new FXMLLoader(getClass().getResource("new-employee-view.fxml"));
         fxmlLoader.setController(this);
@@ -36,6 +39,10 @@ public class EmployeeNewEntryController {
         } catch (IOException exception) {
             throw new RuntimeException(exception);
         }
+    }
+
+    public void setCallback(IEmployeeCallback callback) {
+        this.callback = callback;
     }
 
 
@@ -57,7 +64,9 @@ public class EmployeeNewEntryController {
                 txt_telephoneNumber.getText()
         );
 
-        CustomerManagementGUI.client.addNewEmployee(employee);
+        if(callback != null) {
+            callback.onChange(employee);
+        }
 
         Stage stage = (Stage) bp_root.getScene().getWindow();
         stage.close();

@@ -1,6 +1,7 @@
 package de.tectronic.lf10_customermanagement_gui;
 
 import de.oszimt.lf10aContractMgmt.model.Employee;
+import de.tectronic.lf10_customermanagement_gui.interfaces.IEmployeeCallback;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -62,6 +63,14 @@ public class EmployeeListComponentController extends HBox {
     void openNewWindow() {
         EmployeeNewEntryController employeeNewEntryController = new EmployeeNewEntryController();
 
+        employeeNewEntryController.setCallback(new IEmployeeCallback() {
+            @Override
+            public void onChange(Employee employee) {
+                CustomerManagementGUI.client.addNewEmployee(employee);
+                lsv_employeeList.getItems().add(employee);
+            }
+        });
+
         Stage stage = new Stage();
         stage.setTitle("Kunde erstellen");
         stage.setScene(new Scene(employeeNewEntryController.fxmlLoader.getRoot()));
@@ -89,5 +98,8 @@ public class EmployeeListComponentController extends HBox {
         }
         int employeeID = lsv_employeeList.getSelectionModel().getSelectedItem().getEmployeeID();
         CustomerManagementGUI.client.deleteEmployee(employeeID);
+
+        Employee selectedEmployee = lsv_employeeList.getSelectionModel().getSelectedItem();
+        lsv_employeeList.getItems().remove(selectedEmployee);
     }
 }
