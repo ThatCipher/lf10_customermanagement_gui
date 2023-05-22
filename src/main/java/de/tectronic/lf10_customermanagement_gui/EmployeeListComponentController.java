@@ -67,7 +67,7 @@ public class EmployeeListComponentController extends HBox {
             @Override
             public void onChange(Employee employee) {
                 CustomerManagementGUI.client.addNewEmployee(employee);
-                lsv_employeeList.getItems().add(employee);
+                updateEmployeeList();
             }
         });
 
@@ -84,6 +84,14 @@ public class EmployeeListComponentController extends HBox {
         }
 
         EmployeeEditEntryController employeeEditEntryController = new EmployeeEditEntryController(lsv_employeeList.getSelectionModel().getSelectedItem());
+
+        employeeEditEntryController.setCallback(new IEmployeeCallback() {
+            @Override
+            public void onChange(Employee employee) {
+                CustomerManagementGUI.client.updateEmployee(employee);
+                updateEmployeeList();
+            }
+        });
 
         Stage stage = new Stage();
         stage.setTitle("Kunde bearbeiten");
