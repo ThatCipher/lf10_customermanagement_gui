@@ -1,4 +1,4 @@
-package de.tectronic.lf10_customermanagement_gui;
+package de.tectronic.lf10_customermanagement_gui.views.customer;
 
 import de.oszimt.lf10aContractMgmt.model.Address;
 import de.oszimt.lf10aContractMgmt.model.Customer;

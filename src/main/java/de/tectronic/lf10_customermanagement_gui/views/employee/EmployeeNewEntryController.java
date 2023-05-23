@@ -1,6 +1,5 @@
-package de.tectronic.lf10_customermanagement_gui;
+package de.tectronic.lf10_customermanagement_gui.views.employee;
 
-import de.oszimt.lf10aContractMgmt.impl.HaseGmbHManagement;
 import de.oszimt.lf10aContractMgmt.model.Address;
 import de.oszimt.lf10aContractMgmt.model.Employee;
 import de.tectronic.lf10_customermanagement_gui.interfaces.IEmployeeCallback;

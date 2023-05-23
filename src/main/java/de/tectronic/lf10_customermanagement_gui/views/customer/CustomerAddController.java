@@ -1,4 +1,4 @@
-package de.tectronic.lf10_customermanagement_gui;
+package de.tectronic.lf10_customermanagement_gui.views.customer;
 
 import de.oszimt.lf10aContractMgmt.impl.HaseGmbHManagement;
 import de.oszimt.lf10aContractMgmt.model.Customer;
@@ -56,7 +56,7 @@ public class CustomerAddController {
         exitForm();
     }
 
-    void FillCustomerFields(c) {
+    void FillCustomerFields(Customer c) {
         // fill Customer Fields
         tf_customerID.setText("" + c.getCustomerID());
         l_customerID.setText(tf_customerID.getText());

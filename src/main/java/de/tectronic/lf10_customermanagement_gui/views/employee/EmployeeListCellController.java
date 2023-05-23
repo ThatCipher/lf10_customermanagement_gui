@@ -1,4 +1,4 @@
-package de.tectronic.lf10_customermanagement_gui;
+package de.tectronic.lf10_customermanagement_gui.views.employee;
 
 import de.oszimt.lf10aContractMgmt.model.Employee;
 import javafx.fxml.FXML;

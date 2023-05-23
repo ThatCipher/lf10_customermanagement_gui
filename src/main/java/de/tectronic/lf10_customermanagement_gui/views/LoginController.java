@@ -1,6 +1,6 @@
-package de.tectronic.lf10_customermanagement_gui;
+package de.tectronic.lf10_customermanagement_gui.views;
 
-import de.oszimt.lf10aContractMgmt.model.Employee;
+import de.tectronic.lf10_customermanagement_gui.Util;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -59,14 +59,11 @@ public class LoginController {
     }
 
     void openManagementWindow() {
-        try {
-            Parent root = FXMLLoader.load(getClass().getResource("mgmtView.fxml"));
-            Stage stage = new Stage();
-            stage.setTitle("Auftragsverwaltung - eingeloggt als Demo");
-            stage.setScene(new Scene(root));
-            stage.show();
-        } catch (IOException exception) {
-            exception.printStackTrace();
-        }
+        MgmtViewController mgmtViewController = new MgmtViewController();
+        Parent root = mgmtViewController.getRoot();
+        Stage stage = new Stage();
+        stage.setTitle("Auftragsverwaltung - eingeloggt als Demo");
+        stage.setScene(new Scene(root));
+        stage.show();
     }
 }
