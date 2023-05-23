@@ -31,6 +31,17 @@ public class CustomerEditorController {
     public TextField tf_addressPostalCode;
     public TextField tf_addressCountry;
 
+    public CustomerEditorController() {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("customer-edit.fxml"));
+        fxmlLoader.setController(this);
+        fxmlLoader.setRoot(this);
+
+        try {
+            fxmlLoader.load();
+        } catch (IOException exception) {
+            throw new RuntimeException(exception);
+        }
+    }
 
     // bei Start der "Eintrag bearbeiten"-View vom Kunden ausführen:
     public void showCustomer(Customer c) {

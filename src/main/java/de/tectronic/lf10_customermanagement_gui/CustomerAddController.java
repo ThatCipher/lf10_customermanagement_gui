@@ -30,6 +30,18 @@ public class CustomerAddController {
     public TextField tf_addressPostalCode;
     public TextField tf_addressCountry;
 
+    public CustomerAddController() {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("customer-add.fxml"));
+        fxmlLoader.setController(this);
+        fxmlLoader.setRoot(this);
+
+        try {
+            fxmlLoader.load();
+        } catch (IOException exception) {
+            throw new RuntimeException(exception);
+        }
+    }
+
     @FXML
     void saveChanges() {
         Address newAddress = new Address(tf_addressStreet.getText(), tf_addressHouse.getText(), tf_addressPostalCode.getText(), tf_addressCity.getText(), tf_addressCountry.getText());
