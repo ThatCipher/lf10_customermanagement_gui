@@ -1,6 +1,8 @@
-package de.tectronic.lf10_customermanagement_gui;
+package de.tectronic.lf10_customermanagement_gui.views.employee;
 
 import de.oszimt.lf10aContractMgmt.model.Employee;
+import de.tectronic.lf10_customermanagement_gui.CustomerManagementGUI;
+import de.tectronic.lf10_customermanagement_gui.Util;
 import de.tectronic.lf10_customermanagement_gui.interfaces.IEmployeeCallback;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
