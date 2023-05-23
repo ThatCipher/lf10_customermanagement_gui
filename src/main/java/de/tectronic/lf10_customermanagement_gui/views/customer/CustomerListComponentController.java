@@ -58,6 +58,11 @@ public class CustomerListComponentController extends HBox {
         lsv_customerList.setCellFactory(employeeListView -> new CustomerListCellController());
     }
 
+    void openNewWindow() {
+        CustomerAddController customerAddController = new CustomerAddController();
+
+    }
+
     @FXML
     void deleteItem(){
         if(lsv_customerList.getSelectionModel().getSelectedItem() == null){

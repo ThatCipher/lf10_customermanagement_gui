@@ -3,8 +3,13 @@ package de.tectronic.lf10_customermanagement_gui.views.customer;
 import de.oszimt.lf10aContractMgmt.impl.HaseGmbHManagement;
 import de.oszimt.lf10aContractMgmt.model.Customer;
 import de.oszimt.lf10aContractMgmt.model.Address;
+
+import java.io.IOException;
 import java.time.LocalDate;
+
+import de.tectronic.lf10_customermanagement_gui.interfaces.ICustomerCallback;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Label;
 
@@ -29,6 +34,23 @@ public class CustomerAddController {
     public TextField tf_addressCity;
     public TextField tf_addressPostalCode;
     public TextField tf_addressCountry;
+
+    ICustomerCallback callback;
+
+    public CustomerAddController () {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("customer-add.fxml"));
+        fxmlLoader.setController(this);
+
+        try {
+            fxmlLoader.load();
+        } catch (IOException exception) {
+            throw new RuntimeException(exception);
+        }
+    }
+
+    public void setCallback(ICustomerCallback callback) {
+        this.callback = callback;
+    }
 
     @FXML
     void saveChanges() {
