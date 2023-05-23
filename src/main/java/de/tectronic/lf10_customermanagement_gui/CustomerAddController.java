@@ -44,7 +44,7 @@ public class CustomerAddController {
         exitForm();
     }
 
-    void FillCustomerFields(c) {
+    void FillCustomerFields(Customer c) {
         // fill Customer Fields
         tf_customerID.setText("" + c.getCustomerID());
         l_customerID.setText(tf_customerID.getText());
