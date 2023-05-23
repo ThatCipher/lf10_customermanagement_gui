@@ -1,7 +1,8 @@
-package de.tectronic.lf10_customermanagement_gui;
+package de.tectronic.lf10_customermanagement_gui.views.customer;
 
 import de.oszimt.lf10aContractMgmt.model.Customer;
-import de.oszimt.lf10aContractMgmt.model.Employee;
+import de.tectronic.lf10_customermanagement_gui.CustomerManagementGUI;
+import de.tectronic.lf10_customermanagement_gui.Util;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -9,7 +10,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.control.ListView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 
 import java.io.IOException;
@@ -23,7 +23,7 @@ public class CustomerListComponentController extends HBox {
     ObservableList<Customer> customersObservableList;
 
     public CustomerListComponentController(){
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("customerListComponent.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/de/tectronic/lf10_customermanagement_gui/views/customer/customerListComponent.fxml"));
         fxmlLoader.setController(this);
         fxmlLoader.setRoot(this);
 

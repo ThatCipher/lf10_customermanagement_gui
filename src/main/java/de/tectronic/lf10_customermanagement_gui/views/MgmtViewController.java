@@ -1,9 +1,16 @@
-package de.tectronic.lf10_customermanagement_gui;
+package de.tectronic.lf10_customermanagement_gui.views;
 
+import de.tectronic.lf10_customermanagement_gui.views.customer.CustomerListComponentController;
+import de.tectronic.lf10_customermanagement_gui.views.employee.EmployeeListComponentController;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
+
+import java.io.IOException;
 
 public class MgmtViewController {
 
@@ -15,11 +22,28 @@ public class MgmtViewController {
     public Button btn_contract;
 
     public HBox hbx_list;
+    public BorderPane bp_root;
+
+    public MgmtViewController() {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/de/tectronic/lf10_customermanagement_gui/views/mgmtView.fxml"));
+        fxmlLoader.setController(this);
+
+        try {
+            fxmlLoader.load();
+        } catch (IOException exception) {
+            throw new RuntimeException(exception);
+        }
+
+    }
 
     @FXML
     public void initialize(){
         updateLoggedUser();
         setMode(MANAGEMENT_MODE.EMPLOYEE);
+    }
+
+    public Parent getRoot() {
+        return (Parent) bp_root;
     }
 
     void updateLoggedUser(){
@@ -71,8 +95,8 @@ public class MgmtViewController {
                 btn_contract.setDisable(true);
             }
         }
-    }
 
+    }
 }
 
 enum MANAGEMENT_MODE {
