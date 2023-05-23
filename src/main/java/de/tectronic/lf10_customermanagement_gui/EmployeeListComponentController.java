@@ -8,7 +8,11 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.ListView;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
@@ -40,6 +44,12 @@ public class EmployeeListComponentController extends HBox {
     public void initialize(){
         updateEmployees();
         updateEmployeeList();
+
+        lsv_employeeList.addEventHandler(KeyEvent.KEY_PRESSED, (key) -> {
+            if(key.getCode()== KeyCode.DELETE) {
+                deleteItem();
+            }
+        });
     }
 
     public void updateEmployees() {
@@ -104,10 +114,15 @@ public class EmployeeListComponentController extends HBox {
         if(lsv_employeeList.getSelectionModel().getSelectedItem() == null){
             return;
         }
-        int employeeID = lsv_employeeList.getSelectionModel().getSelectedItem().getEmployeeID();
-        CustomerManagementGUI.client.deleteEmployee(employeeID);
 
-        Employee selectedEmployee = lsv_employeeList.getSelectionModel().getSelectedItem();
-        lsv_employeeList.getItems().remove(selectedEmployee);
+        boolean confirms = Util.showConfirmationFieldAlert();
+        if(confirms) {
+            int employeeID = lsv_employeeList.getSelectionModel().getSelectedItem().getEmployeeID();
+            CustomerManagementGUI.client.deleteEmployee(employeeID);
+
+            Employee selectedEmployee = lsv_employeeList.getSelectionModel().getSelectedItem();
+            lsv_employeeList.getItems().remove(selectedEmployee);
+        }
     }
+
 }

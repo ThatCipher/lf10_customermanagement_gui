@@ -10,7 +10,7 @@
             <VBox VBox.vgrow="ALWAYS" />
             <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="50.0" mnemonicParsing="false" onAction="#openNewWindow" text="Neuer Eintrag" />
             <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="50.0" mnemonicParsing="false" onAction="#openEditWindow" text="Bearbeiten" />
-            <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="50.0" mnemonicParsing="false" onAction="#deleteItem" text="Eintrag löschen" />
+            <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="50.0" mnemonicParsing="false" onAction="#deleteItem" text="Eintrag Löschen" />
         </children>
     </VBox>
 </fx:root>
