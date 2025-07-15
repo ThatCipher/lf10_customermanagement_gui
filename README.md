@@ -15,3 +15,6 @@ Java GUI Projekt for LF10 at OSZ IMT
 
 ## Deadline
 **06.03.2023 um 18 Uhr**
+
+## Current Status
+Since I am done with my Ausbildung I wont work on this any more but I want to keep it
